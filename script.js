@@ -4,9 +4,6 @@ var timeArray = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", 
 
 $("#currentDay").text(currentDay);
 
-console.log(moment())
-console.log(currentHour)
-
 function timeBlock(){
     for (var i = 0; i < timeArray.length; i++){
         var newForm = $("<form class='row'>");
@@ -15,6 +12,7 @@ function timeBlock(){
         var newSaveButton = $("<button type=submit class='saveBtn'>");
         newForm.addClass("time-block");
         newLabel.text(timeArray[i]);
+        newTextArea.attr("data-index", i);
         newSaveButton.addClass("far fa-save");
         newForm.append(newLabel, newTextArea, newSaveButton);
 
@@ -32,10 +30,20 @@ function timeBlock(){
 
 timeBlock();
 
+function displayStorage(){
+    for (var i = 0; i < localStorage.length; i++){
+        var savedInfo = localStorage.getItem(localStorage.key(i));
+        console.log(savedInfo);
+        $("textarea[data-index='" + i + "']").text(savedInfo)
+    }
+
+}
+
 $(".saveBtn").on("click", function(event){
     event.preventDefault();
-    var storageKey = $(this).siblings(".hour").text();
-    var storageValue = $(this).prev().val();
-    console.log(storageKey, storageValue)
-    localStorage.setItem(storageKey, storageValue);
+    var key = $(this).siblings(".hour").text();
+    var value = $(this).prev().val();
+    localStorage.setItem(key, value);
 });
+
+displayStorage();
