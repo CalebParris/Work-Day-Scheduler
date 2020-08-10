@@ -12,7 +12,7 @@ function timeBlock(){
         var newForm = $("<form class='row'>");
         var newLabel = $("<label for=textarea class='hour'>");
         var newTextArea = $("<textarea type=text name=textarea>");
-        var newSaveButton = $("<button type=button class='saveBtn'>");
+        var newSaveButton = $("<button type=submit class='saveBtn'>");
         newForm.addClass("time-block");
         newLabel.text(timeArray[i]);
         newSaveButton.addClass("far fa-save");
@@ -28,13 +28,14 @@ function timeBlock(){
 
         $(".container").append(newForm);
     }
-
-    
 }
 
-$(".saveBtn").on("click", function(){
-
-    
-})
-
 timeBlock();
+
+$(".saveBtn").on("click", function(event){
+    event.preventDefault();
+    var storageKey = $(this).siblings(".hour").text();
+    var storageValue = $(this).prev().val();
+    console.log(storageKey, storageValue)
+    localStorage.setItem(storageKey, storageValue);
+});
