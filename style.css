@@ -11,6 +11,7 @@ body {
     color: #000000;
     border-left: 1px solid black;
     padding: 10px;
+    width: 70%; /* Added width to make the text area larger */
   }
   
   .jumbotron {
@@ -33,28 +34,31 @@ body {
   .row {
     white-space: pre-wrap;
     height: 80px;
-    border-top: 1px solid white;;
+    border-top: 1px solid white;
+    justify-content: center; /* Centered the content on the page */
   }
   
   .hour {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
+    padding: 2%; /* Added a padding to make the time easier to read */
+    font-weight: bold; /* Bolded the times */
   }
   
   .past {
     background-color: #d3d3d3;
-    color: white;
+    color: black; /* Changed text color to black to make it easier to read */
   }
   
   .present {
     background-color: #ff6961;
-    color: white;
+    color: black; /* Changed text color to black to make it easier to read */
   }
   
   .future {
     background-color: #77dd77;
-    color: white;
+    color: black; /* Changed text color to black to make it easier to read */
   }
   
   .saveBtn {
@@ -63,6 +67,9 @@ body {
     border-bottom-right-radius: 15px;
     background-color: #06AED5;
     color: white;
+    text-align: center; /* Centered the text */
+    width: 10%; /* Made the button bigger */
+    font-size: 30px; /* Made the save icon bigger */
   }
   
   .saveBtn i:hover {
