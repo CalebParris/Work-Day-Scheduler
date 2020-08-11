@@ -11,4 +11,4 @@ Here is a link to the finished scheduler: https://calebparris.github.io/Work-Day
 
 Here is a screenshot of the page after 5pm:
 
-![Workday Scheduler Page](Workday-Scheduler.png)
+![Workday Scheduler Page](assets/images/Workday-Scheduler.png)
