@@ -16,6 +16,8 @@ function timeBlock(){
         newForm.addClass("time-block");
         newLabel.text(timeArray[i]);
         newTextArea.attr("data-index", i);
+        // newTextArea.attr("id", i);
+        // newSaveButton.attr("data-id", i);
         newSaveButton.addClass("far fa-save");
         newForm.append(newLabel, newTextArea, newSaveButton);
 
@@ -41,14 +43,19 @@ $(".saveBtn").on("click", function(event){
     var key = $(this).siblings(".hour").text();
     var value = $(this).prev().val();
     localStorage.setItem(key, value);
+    // var id = $(this).attr("data-id")
+    // var currentValue = $("#" + id).val()
+    // console.log(currentValue)
+    // localStorage.setItem(id, currentValue);
 });
 
 // This function pulls the value information form the local storage and places it in the textarea
 function displayStorage(){
-    for (var i = 0; i < localStorage.length; i++){
-        var savedInfo = localStorage.getItem(localStorage.key(i));
-        console.log(savedInfo);
-        $("textarea[data-index='" + i + "']").text(savedInfo)
+    for (var i = 0; i < timeArray.length; i++){
+        var savedInfo = localStorage.getItem(timeArray[i]);
+        if (timeArray[i]){
+            $("textarea[data-index='" + i + "']").text(savedInfo);
+        }
     }
 
 }
